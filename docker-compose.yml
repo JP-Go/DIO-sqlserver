@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  sqlserver_db: 
+    build: .
+    container_name: sqlserver_test_db
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=Asup3rStr0ngp4ssw0rdWith.lotsofsec
+      - MSSQL_PID=Express
+    ports:
+      - 1433:1433
+  adminer:
+    image: adminer:latest
+    container_name: adminer_sqlserver
+    ports:
+      - 8080:8080
